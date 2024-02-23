@@ -7,6 +7,7 @@ Backend
 
 ### Tailwind
 We are using **NPM** to generate our `css` using tailwind.
+In development, make sure to __clear browser cache__ to get fresh stylesheets.
 ```bash
 npm install
 ```

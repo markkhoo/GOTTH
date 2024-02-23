@@ -5,7 +5,7 @@ tmp_dir = "tmp"
 [build]
   args_bin = []
   bin = "./tmp/main"
-  cmd = "make templ-generate && make sqlc-generate && go build -o tmp/main ./cmd"
+  cmd = "make templ-generate && make tailwind-build && make sqlc-generate && go build -o tmp/main ./cmd"
   delay = 600
   exclude_dir = ["assets", "tmp", "vendor", "testdata", "internal/db/go"]
   exclude_file = []

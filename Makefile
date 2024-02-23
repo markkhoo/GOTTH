@@ -1,11 +1,7 @@
 .PHONY: check-os
 check-os:
 	@OS=$$(uname -s | tr '[:upper:]' '[:lower:]')-$$(uname -m); \
-	echo $$OS; \
-
-.PHONY: tailwind-watch
-tailwind-watch:
-	npm run tailwind-watch
+	echo "OS and Architecture: $$OS"; \
 
 .PHONY: tailwind-build
 tailwind-build:
