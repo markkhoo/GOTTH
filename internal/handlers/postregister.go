@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"goth/internal/db"
+	db "goth/internal/db/go"
 	"goth/internal/templates"
 	"net/http"
 )

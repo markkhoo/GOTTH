@@ -20,7 +20,7 @@ import (
 	"github.com/go-chi/jwtauth/v5"
 
 	"database/sql"
-	postgres "goth/internal/db"
+	postgres "goth/internal/db/go"
 
 	_ "github.com/joho/godotenv/autoload"
 	_ "github.com/lib/pq"

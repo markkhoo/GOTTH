@@ -2,7 +2,7 @@ package tokenauth
 
 import (
 	"errors"
-	"goth/internal/db"
+	db "goth/internal/db/go"
 	"time"
 
 	"github.com/go-chi/jwtauth/v5"

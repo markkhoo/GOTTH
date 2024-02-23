@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"goth/internal/db"
+	db "goth/internal/db/go"
 
 	"github.com/golang-jwt/jwt"
 )
