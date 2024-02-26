@@ -28,12 +28,12 @@ check-os-then-dev-build:
 
 .PHONY: tailwind-watch
 tailwind-watch:
-	npm run tailwind-watch
+	npm run tailwind-watch; \
 
 .PHONY: tailwind-build
 tailwind-build:
-	npm run tailwind-build
-	echo "Tailwind Build Successful"
+	npm run tailwind-build; \
+	echo "Tailwind Build Successful"; \
 
 .PHONY: templ-generate
 templ-generate:
@@ -59,7 +59,7 @@ templ-generate:
 	        echo "You chose not to install templ. Exiting..."; \
 	        exit 1; \
 	    fi; \
-	fi
+	fi; \
 
 .PHONY: sqlc-generate
 sqlc-generate:
@@ -85,7 +85,7 @@ sqlc-generate:
 					echo "You chose not to install sqlc. Exiting..."; \
 					exit 1; \
 			fi; \
-	fi
+	fi; \
 
 .PHONY: dev
 dev:
@@ -104,8 +104,8 @@ dev:
 	        echo "You chose not to install air. Exiting..."; \
 	        exit 1; \
 	    fi; \
-	fi
+	fi; \
 
 .PHONY: build
 build:
-	make tailwind-build && make templ-generate && make sqlc-generate && make check-os-then-build
+	make tailwind-build && make templ-generate && make sqlc-generate && make check-os-then-build; \
