@@ -20,19 +20,21 @@ func generateRandomString(length int) string {
 
 func CSPMiddleware(next http.Handler) http.Handler {
 	htmxNonce := generateRandomString(16)
-	responseTargetsNonse := generateRandomString(16)
+	responseTargetsNonce := generateRandomString(16)
 	twNonce := generateRandomString(16)
+	alpineNonce := generateRandomString(16)
 
 	// set then in context
 	ctx := context.WithValue(context.Background(), "htmxNonce", htmxNonce)
 	ctx = context.WithValue(ctx, "twNonce", twNonce)
-	ctx = context.WithValue(ctx, "responseTargetsNonse", responseTargetsNonse)
+	ctx = context.WithValue(ctx, "responseTargetsNonce", responseTargetsNonce)
+	ctx = context.WithValue(ctx, "alpineNonce", alpineNonce)
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// the hash of the CSS that HTMX injects
 		htmxCSSHash := "sha256-pgn1TCGZX6O77zDvy0oTODMOxemn0oj0LeCnQTRj7Kg="
 
-		cspHeader := fmt.Sprintf("default-src 'self'; script-src 'nonce-%s' 'nonce-%s'; style-src 'nonce-%s' '%s';", htmxNonce, responseTargetsNonse, twNonce, htmxCSSHash)
+		cspHeader := fmt.Sprintf("default-src 'self'; script-src 'nonce-%s' 'nonce-%s' 'nonce-%s'; style-src 'nonce-%s' '%s';", htmxNonce, responseTargetsNonce, alpineNonce, twNonce, htmxCSSHash)
 		w.Header().Set("Content-Security-Policy", cspHeader)
 
 		next.ServeHTTP(w, r.WithContext(ctx))
