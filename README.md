@@ -2,10 +2,10 @@
 [![Forked from this GoTTH stack walkthrough](https://img.youtube.com/vi/k00jVJeZxrs/0.jpg)](https://www.youtube.com/watch?v=k00jVJeZxrs)
 
 ## Technologies
-### Go
+### [Go](https://go.dev/doc/install)
 Backend
 
-### Tailwind
+### [Tailwind](https://tailwindcss.com/docs/installation)
 We are using **NPM** to generate our `css` using tailwind.
 In development, make sure to __clear browser cache__ to get fresh stylesheets.
 ```bash
@@ -14,45 +14,43 @@ npm install
 ~~To get started with TailWind CSS, make sure you have the correct binary in the root directory.
 https://tailwindcss.com/blog/standalone-cli~~
 
-### Templ
+### [Templ](https://templ.guide/)
 Templating
 ```bash
 go install github.com/a-h/templ/cmd/templ@latest
 ```
 
-Docs: https://templ.guide/
+### [HTMX](https://htmx.org/docs/)
+Server-Side Interactivity
 
-### HTMX
-Interactivity
+### [Alpine](https://alpinejs.dev/start-here)
+Client-Side Interactivity
 
-### Postgres
+### [Postgres](https://www.postgresql.org/)
 Database
 
-### SQLC
+*The `*.sql` files in `internal/db` are in psql syntax. If only `SQLC` could generate files from the `.psql` file extension. One can dream*
+
+### [SQLC](https://docs.sqlc.dev/en/stable/index.html)
 Object Relational Mapping
 ```bash
 go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 ```
 
-### Chi
+### [Chi](https://go-chi.io/#/pages/routing)
 Server Routing
-
-Docs: https://docs.sqlc.dev/en/stable/index.html
 
 ## Getting started
 
-The tools we use that are required for development:
+### Development Tooling
 * [**make**](https://www.gnu.org/software/make/manual/make.html) - utility
   * install for Windows: `choco install make`
   * install for MacOS: `brew install make`
   * _no need for explanation to linux users_
 * [**air**](https://github.com/cosmtrek/air?tab=readme-ov-file#installation) - for development live-reloading
-
-```
-git clone https://github.com/markkhoo/GOTTH.git
-cd GOTTH
-make dev
-```
+* [**npm**](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) - for npm packages (Tailwindcss with plugins)
+  * install [Node](https://nodejs.org/en/download)
+  * install packages run `npm i`
 
 ### Environment Variables
 Using the [**Go** port of DotEnv](https://github.com/joho/godotenv). Example `.env` file for development:
@@ -62,6 +60,13 @@ DB_PORT="5432"
 DB_DATABASE="sqlc-example"
 DB_USERNAME="postgres"
 DB_PASSWORD="password"
+```
+
+### Local Development
+```
+git clone https://github.com/markkhoo/GOTTH.git
+cd GOTTH
+make dev
 ```
 
 ## Makefile
